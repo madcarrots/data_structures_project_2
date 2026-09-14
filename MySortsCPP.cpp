@@ -225,9 +225,10 @@ void selectionsort(int data[ ], size_t n)
 	int j = 0;
 	int temp = 0;
 
-	for (i = 0; i < n; ++i) {
+	for (i = 0; i < n - 1; ++i) {
+		// Find the smallest remaining element
 		int indexSmallest = i;
-		for ( j = i + 1; j < data[indexSmallest]; ++j ) {
+		for ( j = i + 1; j < n; ++j ) {
 			if ( data[j] < data[indexSmallest] ) {
 				indexSmallest = j;
 			}
