@@ -161,8 +161,42 @@ void mergesort(int data[ ], size_t n)
 
 size_t partition(int data[], size_t n)
 {
-	
+	// low index and high index
+	size_t lowIndex = 0;
+	size_t highIndex = n - 1;
+
+	// pivot and midpoint
+	size_t midpoint = n / 2;
+	int pivot = data[midpoint];
+
+
+	bool done = false;
+	while (!done) {
+		// increment the lowIndex while data[lowIndex] < pivot
+		while (data[lowIndex] < pivot ) {
+			lowIndex += 1;
+		};
+
+		while (pivot < data[highIndex] ) {
+			highIndex -= 1;
+		}
+
+		if (lowIndex >= highIndex ) {
+			done = true;
+		} else {
+			int temp = data[lowIndex];
+			data[lowIndex] = data[highIndex];
+			data[highIndex] = temp;
+
+			lowIndex += 1;
+			highIndex -= 1;
+		}
+
+	}
+	return highIndex;
+
 }
+
 
 void quicksort(int data[], size_t n)
 {
