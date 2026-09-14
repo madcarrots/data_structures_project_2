@@ -177,7 +177,23 @@ void quicksort(int data[], size_t n)
 void selectionsort(int data[ ], size_t n)
 // Library facilities used: algorithm, cstdlib
 {
-  
+  	int i = 0;
+	int j = 0;
+	int temp = 0;
+
+	for (i = 0; i < n; ++i) {
+		int indexSmallest = i;
+		for ( j = i + 1; j < data[indexSmallest]; ++j ) {
+			if ( data[j] < data[indexSmallest] ) {
+				indexSmallest = j;
+			}
+		}
+
+		// swap data[i] and data[indexSmallest]
+		temp = data[i];
+		data[i] = data[indexSmallest];
+		data[indexSmallest] = temp;
+	}
 }
 //*************************************************************************
 
@@ -188,7 +204,21 @@ void selectionsort(int data[ ], size_t n)
 void insertionsort(int data[], size_t n)
 // 
 {
+	int i = 0;
+	int j = 0;
+	int temp = 0;
+
+	for (i = 0; i < n; ++i) {
+		j = i;
+		while( j > 0 && data[j] < data[j - 1]) {
+			// swap data[j] and data[j - 1]
+			temp = data[j];
+			data[j] = data[j - 1];
+			data[j - 1] = temp;
+		}
+	}
 	
+
 }
 //*************************************************************************
 
