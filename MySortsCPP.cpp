@@ -200,7 +200,17 @@ size_t partition(int data[], size_t n)
 
 void quicksort(int data[], size_t n)
 {
-	
+	// Base case: If the partition size is 1 or zero 
+   // elements, then the partition is already sorted
+
+   if (n  <= 1) {
+	return;
+   }
+
+   size_t lowEndIndex = partition(data, n);
+
+
+
 }
 //*************************************************************************
 
@@ -249,6 +259,7 @@ void insertionsort(int data[], size_t n)
 			temp = data[j];
 			data[j] = data[j - 1];
 			data[j - 1] = temp;
+			j -= 1;
 		}
 	}
 	
